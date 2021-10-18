@@ -18,14 +18,21 @@ const caesar = function (sentence, number) {
         if (letter === letter.toUpperCase()) {
             currentLetterPosition = alphabet.indexOf(letter.toLowerCase());
         }
+
         let shiftedPosition = currentLetterPosition + number;
+
         if (shiftedPosition >= 26) {
             shiftedPosition = (shiftedPosition % 26);
+        }
+
+        if (shiftedPosition < 0) {
+            shiftedPosition = shiftedPosition + 26;
         }
 
         if (!alphabet.includes(letter.toLowerCase())) {
             return letter;
         }
+
         if (letter === letter.toUpperCase()) {
             return alphabet.charAt(shiftedPosition).toUpperCase()
         } else if (letter === letter.toLowerCase()) {
